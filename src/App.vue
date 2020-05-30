@@ -6,20 +6,18 @@
           input.input.is-large(type="text", placeholder="Buscar canciones", v-model="searchQuery")
           a.button.is-info.is-large(@click="search") Buscar
           a.button.is-danger.is-large &times;
-          p
-            small {{ searchMessage }}
+      
+      .container
+        p
+          small {{ searchMessage }}
 
       .container.results
         .columns
-          .cloumn(v-for="t in tracks") {{ t.name }} - {{t.artist }}
+          .column(v-for="t in tracks") {{ t.name }} - {{t.artists[0].name }}
 </template>
 
 <script>
-const tracks = [
-  {name: 'fasfc', artist: 'ECDL'},
-  {name: 'fsfgbbgb', artist: 'Melendi'},
-  {name: '3424cd', artist: 'Estopa'}
-]
+import trackService from './services/track'
 
 export default {
   name: 'app',
@@ -38,7 +36,11 @@ export default {
 
   methods: {
     search () {
-      this.tracks = tracks
+      if(this.searchQuery === '') {return }
+      trackService.search(this.searchQuery)
+        .then(res => {
+          this.tracks = res.tracks.items          
+        })
     }
   }
 }
