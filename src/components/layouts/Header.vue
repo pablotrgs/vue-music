@@ -18,7 +18,16 @@
             <div class="container has-text-centered">
                 <h1 class="title">Vue Music</h1>
                 <h2 class="subtitle">Canciones Vue-nisimas</h2>
+                <c-player></c-player>
             </div>
         </div>
     </section>
 </template>
+
+<script>
+import cPlayer from '../Player.vue'
+
+export default {
+    components: { cPlayer }
+}
+</script>
