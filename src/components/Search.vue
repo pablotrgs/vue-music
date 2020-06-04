@@ -1,15 +1,22 @@
 <template lang="pug">
   main
 
-    cNotification(v-show="showNotification")
-      p(slot="body") No se encontraron resultados
+    transition(name="move")
+      cNotification(v-show="showNotification")
+        p(slot="body") No se encontraron resultados
 
-    cLoader(v-show="isLoading")
+    transition(name="move")
+      cLoader(v-show="isLoading")
 
     section.section(v-show="!isLoading")
       nav.nav
         .container
-          input.input.is-large(type="text", placeholder="Buscar canciones", v-model="searchQuery")
+          input.input.is-large(
+            type="text",
+            placeholder="Buscar canciones", 
+            v-model="searchQuery", 
+            @keyup.enter="search"
+          )
           a.button.is-info.is-large(@click="search") Buscar
           a.button.is-danger.is-large &times;
       
@@ -20,7 +27,12 @@
       .container.results
         .columns.is-multiline
           .column.is-one-quarter(v-for="t in tracks") 
-            cTrack(:track="t", @select="setSelectedTrack", :class="{'is-active': t.id === selectedTrack}")
+            cTrack(
+              :track="t", 
+              @select="setSelectedTrack", 
+              :class="{'is-active': t.id === selectedTrack}",
+              v-blur="t.preview_url"
+            )
 
 </template>
 

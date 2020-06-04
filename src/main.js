@@ -6,8 +6,13 @@ import routes from './routes'
 
 import eventBus from './plugins/event-bus'
 
+import msToMm from './filters/ms-to-mm';
+import blur from './directives/blur'
+
 Vue.use(VueRouter)
 Vue.use(eventBus)
+Vue.use(msToMm)
+Vue.use(blur)
 
 const router = new VueRouter ({ 
   routes,
