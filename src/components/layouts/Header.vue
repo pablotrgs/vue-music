@@ -9,15 +9,17 @@
                         </div>
                     </div>
                     <div class="nav-right nav-menu">
-                        <router-link class="nav-item" :to="{name: 'search'}">Buscar</router-link>
-                        <router-link class="nav-item" to="about">Nosotros</router-link>
+                        <a class="nav-item" @click="selectLang('en')">🇬🇧</a>
+                        <a class="nav-item" @click="selectLang('es')">🇪🇸</a>
+                        <router-link class="nav-item" to="search"> {{ $t('search') }} </router-link>
+                        <router-link class="nav-item" to="about"> {{ $t('about') }} </router-link>
                     </div>
                 </div>
             </header>
         </div>
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title">Vue Music</h1>
+                <h1 class="title"><router-link class="title" to="/"> Vue Music </router-link></h1>
                 <h2 class="subtitle">Canciones Vue-nisimas</h2>
                 <c-player></c-player>
             </div>
@@ -29,6 +31,12 @@
 import cPlayer from '../Player.vue'
 
 export default {
-    components: { cPlayer }
+    components: { cPlayer },
+
+    methods: {
+        selectLang (lang){
+            this.$i18n.locale = lang
+        }
+    }
 }
 </script>
