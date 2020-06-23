@@ -1,6 +1,6 @@
 # vuemusic
 
-> A Vue.js project. Disponible en: https://pablotrgs.github.io/
+> A Vue.js project. Disponible en: https://pablotrgs.github.io/vue-music
 
 ## Build Setup
 
