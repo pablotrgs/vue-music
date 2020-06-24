@@ -1,6 +1,6 @@
 # vuemusic
 
-> A Vue.js project
+> A Vue.js project. Disponible en: https://pablotrgs.github.io/vue-music
 
 ## Build Setup
 
@@ -15,4 +15,3 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
