@@ -9,18 +9,19 @@
       cLoader(v-show="isLoading")
 
     section.section(v-show="!isLoading")
-      nav.nav
-        .container
-          input.input.is-large(
+      nav.navbar
+        .container.field.has-addons.has-addons-centered
+          input.input.is-large.is-rounded(
             type="text",
+            style="width: 40%;",
             placeholder="Buscar canciones", 
             v-model="searchQuery", 
             @keyup.enter="search"
           )
-          a.button.is-info.is-large(@click="search") Buscar
-          a.button.is-danger.is-large &times;
+          a.button.is-info.is-large.is-rounded(@click="search") Buscar
+          a.button.is-danger.is-large.is-rounded &times;
       
-      .container
+      .container.field.has-addons.has-addons-centered
         p
           small {{ searchMessage }}
 

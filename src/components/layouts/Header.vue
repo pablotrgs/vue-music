@@ -1,18 +1,18 @@
 <template>
     <section class="hero is-success">
         <div class="hero-head">
-            <header class="nav">
+            <header class="navbar">
                 <div class="container">
-                    <div class="nav-left">
-                        <div class="nav-item">
+                    <div class="navbar-start">
+                        <div class="navbar-item">
                             <strong>📻 Vue Music</strong>
                         </div>
                     </div>
-                    <div class="nav-right nav-menu">
-                        <a class="nav-item" @click="selectLang('en')">🇬🇧</a>
-                        <a class="nav-item" @click="selectLang('es')">🇪🇸</a>
-                        <router-link class="nav-item" to="search"> {{ $t('search') }} </router-link>
-                        <router-link class="nav-item" to="about"> {{ $t('about') }} </router-link>
+                    <div class="navbar-end navbar-menu">
+                        <a class="navbar-item" @click="selectLang('en')">🇬🇧</a>
+                        <a class="navbar-item" @click="selectLang('es')">🇪🇸</a>
+                        <router-link class="navbar-item" to="search"> {{ $t('search') }} </router-link>
+                        <router-link class="navbar-item" to="about"> {{ $t('about') }} </router-link>
                     </div>
                 </div>
             </header>
